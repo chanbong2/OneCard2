@@ -4,6 +4,8 @@
 
 #include "Player1.hpp"
 #include <iostream>
+#include "Deck.hpp"
+
 
 Player1::Player1()
 {
@@ -15,20 +17,27 @@ Player1::Player1(std::string pname)
     name = pname;
 }
 
+bool isTurn() {} // todo
+
 void Player1::drawCard(Card& topcard)
 {
     hand.push_back(topcard);
 }
 
+// bool Player1::isValidCard(Card& topcard) {
+//     int len = hand.size();
+//     for (int idx = 0; idx < len; idx++) {
+//         Card selectedcard = hand[idx];
+//         if (selectedcard.suit == topcard.suit || selectedcard.number == topcard.number) return true;
+//         else return false;
+//     }
+// }
 bool Player1::isValidCard(Card& topcard) {
-    int len = hand.size();
-    for (int idx = 0; idx < len; idx++) {
-        Card selectedcard = hand[idx];
-        if (selectedcard.suit == topcard.suit || selectedcard.number == topcard.number) return true;
-        else return false;
+    Card selectedcard = hand[idx];
+    if (selectedcard.suit == topcard.suit || selectedcard.number == topcard.number) return true;
+    else return false;
     }
 }
-
 // 각 카드마다 낼 수 있는 카드인지 어떻게 판별하지? enum으로 true false를 집어넣어야 하나?
 // returnIndex 함수를 통해서 idx를 저장하고 내면 될 것 같음.
 
@@ -61,7 +70,7 @@ int Player1::getCardCount()
     return size;
 }
 
-void Player1::returnIndex(Card& topcard, std::vector<Card>& deathzone)
+void Player1::returnIndex(Card& topcard, std::vector<Card>& discardPile)
 {
     std::vector<int> ans;
     int size = hand.size();

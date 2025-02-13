@@ -3,13 +3,14 @@
 //
 #include "Game.hpp"
 #include <iostream>
+#include "Deck.hpp"
 #include <ctime>
 
 Game::Game(Player2& p1, Player2& p2)
     : player1(p1), player2(p2), currentPlayer(&player1), gameOver(false) {
     deck.initialBegin();
     deck.shuffleDeck();
-    setTopCard(deck.drawCard());
+    setTopCard(deck.drawCard(1));
     dealCards();
 }
 
@@ -21,16 +22,11 @@ void Game::startGame() {
         playTurn();
         changeTurn();
     }
-
-    checkJoker() {
-        if (player1.)
-    };
 }
+    // joker check 함수도 만들기
 
 void Game::playTurn() {
     std::cout << currentPlayer->getName() << "'s turn!" << std::endl;
-
-
 
     showStatus();
 }
@@ -63,8 +59,8 @@ void Game::shuffleDeck() {
 
 void Game::dealCards() {
     for (int i = 0; i < 7; ++i) {
-        player1.addCard(deck.drawCard());
-        player2.addCard(deck.drawCard());
+        player1.drawCard(deck.drawCard());
+        player2.drawCard(deck.drawCard());
     }
 }
 
@@ -78,7 +74,7 @@ Card Game::getTopCard() const {
     return topCard;
 }
 
-void Game::setTopCard(Card& card) {
-    topCard = card;
+void Game::setTopCard(Card& cards) {
+    // topCard = cards.();
 }
 
