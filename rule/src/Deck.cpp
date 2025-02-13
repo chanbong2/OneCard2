@@ -57,6 +57,7 @@ bool Deck::isEmpty() const
 //
 // 컴파일러가 최적화할 수 있는 여지가 커진다는 장점도 존재한다고 한다.
 
+
 void Deck::refillDeck(std::vector<Card>& discardStack)
 {
     Card topCard = discardStack.back();

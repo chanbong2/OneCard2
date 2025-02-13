@@ -10,7 +10,7 @@ Game::Game(Player2& p1, Player2& p2)
     : player1(p1), player2(p2), currentPlayer(&player1), gameOver(false) {
     deck.initialBegin();
     deck.shuffleDeck();
-    setTopCard(deck.drawCard(1));
+    deck.setTopCard;
     dealCards();
 }
 
