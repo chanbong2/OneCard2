@@ -1,39 +1,14 @@
-# 빌드 디렉터리 무시
-build/
-bin/
-obj/
+cmake-build-debug/
+cmake-build-release/
+CMAKELists.txt.user
 
-# 컴파일된 객체 파일, 바이너리 파일 무시
+*.out
 *.o
 *.obj
-*.so
 *.exe
-*.out
-*.a
-*.lib
-*.dll
-*.dylib
 
-# IDE 관련 파일 무시 (Visual Studio, Code::Blocks 등)
-.vscode/
 .idea/
+.vscode/
 
-# CMake 빌드 디렉터리 무시
-CMakeCache.txt
-CMakeFiles/
-Makefile
-
-# 임시 파일, 로그 파일 무시
 *.log
-*.tmp
-*.swp
-
-# Windows 운영체제 관련 파일 무시
-Thumbs.db
-Desktop.ini
-
-# macOS 관련 파일 무시
-.DS_Store
-
-# 임시 빌드 아티팩트 무시
-*.stackdump
+*.cache
