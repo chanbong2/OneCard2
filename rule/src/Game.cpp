@@ -51,7 +51,6 @@ void Game::checkWinner() {
     gameOver = true;
 }
 
-
 void Game::shuffleDeck() {
     deck.shuffleDeck();
 }

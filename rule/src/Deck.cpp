@@ -36,7 +36,7 @@ void Deck::shuffleDeck()
 }
 
 Card Deck::drawCard() {
-
+    //
 }
 
 size_t Deck::remainedCards() const
