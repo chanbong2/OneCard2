@@ -18,10 +18,10 @@ void Card::display()
 }
 
 bool Card::isValidCard(Card& topcard) {
-    if (suit == topcard.suit) return true;
-    if (number == topcard.number) return true;
-    if (suit == COLORJOKER && (topcard.suit == HEART || topcard.suit == DIAMOND)) return true;
-    if (suit == BLACKJOKER && (topcard.suit == SPADE || topcard.suit == CLUB)) return true;
+    if (this->suit == topcard.suit) return true;
+    if (this->number == topcard.number) return true;
+    if (this->suit == COLORJOKER && (topcard.suit == HEART || topcard.suit == DIAMOND)) return true;
+    if (this->suit == BLACKJOKER && (topcard.suit == SPADE || topcard.suit == CLUB)) return true;
 
     return false;
 }
