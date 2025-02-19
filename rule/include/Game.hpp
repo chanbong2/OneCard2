@@ -81,11 +81,9 @@ public:
     void setTopCard();
     bool checkWinner(); // 조커로 인한 패배 포함
     void changeTurn();
-    void playTurn();
+    void playGame();
     void isValidCard(Card& card);
-    bool isGameOver() const;
-    void showStatus();
-    void shuffleDeck();
+    // void shuffleDeck(); 어차피 deck에서 끌어쓰는거라 굳이 정의 안 해도 될 것 같음
 };
 
 

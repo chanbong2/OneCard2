@@ -7,6 +7,6 @@
 
 enum cardSuit {SPADE, HEART, DIAMOND, CLUB, BLACKJOKER, COLORJOKER};
 enum cardNumber {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING,
-    NONE};
+    JOKER};
 
 #endif //ENUM_HPP

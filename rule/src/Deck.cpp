@@ -24,8 +24,8 @@ void Deck::initialBegin() {
             cards.push_back(Card(suit, number));
         }
     }
-    cards.push_back(Card(BLACKJOKER, NONE));
-    cards.push_back(Card(COLORJOKER, NONE));
+    cards.push_back(Card(BLACKJOKER, JOKER));
+    cards.push_back(Card(COLORJOKER, JOKER));
 }
 
 void Deck::shuffleDeck()
@@ -34,14 +34,6 @@ void Deck::shuffleDeck()
     std::mt19937 g(random());
     std::ranges::shuffle(cards.begin(), cards.end(), g);
 }
-
-size_t Deck::remainedCards()
-{
-    return cards.size();
-}
-// 적합한 자료형으로 변경
-// int로 선언했으나, 반환값이 부호가 없으므로 unsigned long인 size_t로 변환을 추천받아 변경했음
-
 
 bool Deck::isEmpty()
 {
@@ -53,6 +45,15 @@ bool Deck::isEmpty()
 // 오직 읽기만 수행한다는 의미를 내포하고 있음.
 //
 // 컴파일러가 최적화할 수 있는 여지가 커진다는 장점도 존재한다고 한다.
+
+
+size_t Deck::remainedCards()
+{
+    return cards.size();
+}
+// 적합한 자료형으로 변경
+// int로 선언했으나, 반환값이 부호가 없으므로 unsigned long인 size_t로 변환을 추천받아 변경했음
+
 
 
 void Deck::refillDeck(std::vector<Card>& discardStack)

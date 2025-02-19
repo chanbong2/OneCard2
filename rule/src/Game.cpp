@@ -7,7 +7,6 @@
 #include "Player.hpp"
 #include "Player1.hpp"
 #include "Player2.hpp"
-#include <ctime>
 
 Game::Game()
 {
@@ -40,7 +39,7 @@ void Game::startGame()
     }
 
     setTopCard();
-    playTurn();
+    playGame();
 }
 
 void Game::setTopCard() {
@@ -49,7 +48,7 @@ void Game::setTopCard() {
 }
 
 bool Game::checkWinner() {
-    return (currentPlayer->isBothJoker() || currentPlayer->isZero() || currentPlayer->getCardCount() >= cardNumberToWin);
+    return (currentPlayer->checkTwoJoker() || currentPlayer->isZero() || currentPlayer->getCardCount() >= cardNumberToWin);
 }
 
 void Game::changeTurn()
@@ -64,29 +63,12 @@ void Game::changeTurn()
 }
 
 // playTurn부터 다시 시작해야함
-void Game::playTurn() {
-    std::cout << currentPlayer->getName() << "'s turn!" << std::endl;
+void Game::playGame() {
 
-    showStatus();
 }
 
 
-
-void Game::shuffleDeck() {
-    deck.shuffleDeck();
-}
-
-
-
-
-void Game::showStatus() {
-    std::cout << "Top Card: " << topCard.suit << " " << topCard.number << std::endl;
-    std::cout << player1.getName() << " has " << player1.getCardCount() << " cards." << std::endl;
-    std::cout << player2.getName() << " has " << player2.getCardCount() << " cards." << std::endl;
-}
-
-Card Game::getTopCard() const {
-    return topCard;
-}
-
-
+// 어차피 deck에서 끌어쓰는거라 굳이 정의 안 해도 될 것 같음
+// void Game::shuffleDeck() {
+//     deck.shuffleDeck();
+// }

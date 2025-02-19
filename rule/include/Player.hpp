@@ -14,14 +14,12 @@ public:
     std::string name;
     std::vector<Card> hand;
 
-    virtual void drawCard(std::vector<Card>& deck);
     virtual bool isTurn();
+    virtual void drawCard(std::vector<Card>& deck);
     virtual bool isValidCard(Card& topcard);
-    virtual bool playCard(int index, Card& topcard);
-    virtual void showHand();
-    virtual void returnIndex(Card& topcard);
+    virtual bool playCard(int index, Card& topcard, std::vector<Card>& discardStack);
     virtual int getCardCount();
-    virtual bool isBothJoker();
+    virtual bool checkTwoJoker();
     virtual bool isZero();
     virtual ~Player() = default;
 };

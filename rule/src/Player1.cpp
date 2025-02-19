@@ -34,7 +34,7 @@ void Player1::drawCard(std::vector<Card>& deck)
 //     }
 // }
 bool Player1::isValidCard(Card& topcard) {
-    Card selectedcard = hand[idx];
+    Card selectedcard = hand[0]; // 수정 필요
     if (selectedcard.suit == topcard.suit || selectedcard.number == topcard.number) return true;
     else return false;
     }
@@ -66,49 +66,49 @@ bool Player1::playCard(int index, Card& topcard, std::vector<Card>& discardStack
     }
 }
 
-void Player1::showHand()
-{
-    int len = hand.size();
-    for (int idx = 0; idx < len; idx++){
-        hand[idx].display();
-    }
-}
-
+// void Player1::showHand()
+// {
+//     int len = hand.size();
+//     for (int idx = 0; idx < len; idx++){
+//         hand[idx].display();
+//     }
+// }
+//
 int Player1::getCardCount()
 {
     int size = hand.size();
     return size;
 }
+//
+// void Player1::returnIndex(Card& topcard)
+// {
+//     std::vector<int> ans;
+//     int size = hand.size();
+//     for (int idx = 0; idx < size; idx++)
+//     {
+//         Card selectedcard = hand[idx];
+//         if (selectedcard.isValidCard(topcard))
+//         {
+//             ans.push_back(idx);
+//         }
+//     }
+//     int len = ans.size();
+//     if (len == 0)
+//     {
+//         drawCard(topcard);
+//     }
+//     else
+//     {
+//         std::cout << "낼 수 있는 카드의 인덱스는 : ";
+//         for (int idx = 0; idx < len; idx++)
+//         {
+//             std::cout << ans[idx] << " ";
+//         }
+//     }
+//     std::cout << std::endl;
+// }
 
-void Player1::returnIndex(Card& topcard)
-{
-    std::vector<int> ans;
-    int size = hand.size();
-    for (int idx = 0; idx < size; idx++)
-    {
-        Card selectedcard = hand[idx];
-        if (selectedcard.isValidCard(topcard))
-        {
-            ans.push_back(idx);
-        }
-    }
-    int len = ans.size();
-    if (len == 0)
-    {
-        drawCard(topcard);
-    }
-    else
-    {
-        std::cout << "낼 수 있는 카드의 인덱스는 : ";
-        for (int idx = 0; idx < len; idx++)
-        {
-            std::cout << ans[idx] << " ";
-        }
-    }
-    std::cout << std::endl;
-}
-
-bool Player1::isBothJoker()
+bool Player1::checkTwoJoker()
 {
     int size = hand.size();
     int count = 0;

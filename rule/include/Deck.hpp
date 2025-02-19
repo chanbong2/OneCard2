@@ -15,14 +15,11 @@
 class Deck {
 public:
     std::vector<Card> cards;
-    Player2 player1;
-    Player2 player2;
 
     Deck();
 
     void initialBegin();
     void shuffleDeck();
-    void setTopCard();
     bool isEmpty();
     size_t remainedCards();
     void refillDeck(std::vector<Card>& discardStack);

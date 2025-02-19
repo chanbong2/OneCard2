@@ -14,17 +14,18 @@
 class Player1 : public Player
 {
 public:
+    std::string name;
+    std::vector<Card> hand;
+
     Player1();
     Player1(std::string pname);
 
-    void drawCard(std::vector<Card>& deck) override;
     bool isTurn() override;
+    void drawCard(std::vector<Card>& deck) override;
     bool isValidCard(Card& topcard) override;
     bool playCard(int index, Card& topcard, std::vector<Card>& discardStack) override;
-    void showHand() override;
-    void returnIndex(Card& topcard) override;
-    int getCardCount() override;
-    bool isBothJoker() override;
+    int getCardCount();
+    bool checkTwoJoker() override;
     bool isZero() override;
 };
 
