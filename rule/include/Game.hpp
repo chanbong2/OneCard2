@@ -78,11 +78,10 @@ public:
     Game();
     Game(std::string name1, std::string name2);
     void startGame();
-    void setTopCard(Card& card);
-    void dealCards();
+    void setTopCard();
+    bool checkWinner(); // 조커로 인한 패배 포함
     void changeTurn();
     void playTurn();
-    void checkWinner(); // 조커로 인한 패배 포함
     void isValidCard(Card& card);
     bool isGameOver() const;
     void showStatus();

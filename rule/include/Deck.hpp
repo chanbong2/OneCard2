@@ -13,12 +13,11 @@
 // #include "Game.hpp"
 
 class Deck {
-    private:
+public:
     std::vector<Card> cards;
     Player2 player1;
     Player2 player2;
 
-    public:
     Deck();
 
     void initialBegin();

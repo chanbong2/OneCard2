@@ -11,7 +11,7 @@
 #include <string>
 
 
-class Player2 : Player
+class Player2 : public Player
 {
 public:
     Player2();

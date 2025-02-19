@@ -22,6 +22,7 @@ bool isTurn() {} // todo
 void Player1::drawCard(std::vector<Card>& deck)
 {
     hand.push_back(deck.back());
+    deck.pop_back();
 }
 
 // bool Player1::isValidCard(Card& topcard) {
