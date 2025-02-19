@@ -19,9 +19,9 @@ Player1::Player1(std::string pname)
 
 bool isTurn() {} // todo
 
-void Player1::drawCard(Card& topcard)
+void Player1::drawCard(std::vector<Card>& deck)
 {
-    hand.push_back(topcard);
+    hand.push_back(deck.back());
 }
 
 // bool Player1::isValidCard(Card& topcard) {
@@ -37,23 +37,32 @@ bool Player1::isValidCard(Card& topcard) {
     if (selectedcard.suit == topcard.suit || selectedcard.number == topcard.number) return true;
     else return false;
     }
-}
+
 // 각 카드마다 낼 수 있는 카드인지 어떻게 판별하지? enum으로 true false를 집어넣어야 하나?
 // returnIndex 함수를 통해서 idx를 저장하고 내면 될 것 같음.
 
 bool Player1::playCard(int index, Card& topcard, std::vector<Card>& discardStack) {
-    std::cin >> index;
-    Card selectedcard = hand[index];
+    if (index < 0 || index > hand.size())
+    {
+        std::cout << "잘못된 인덱스입니다!" << std::endl;
+        return false;
+    }
+
+    Card selectedcard = hand[index - 1];
 
     if (selectedcard.isValidCard(topcard))
     {
         discardStack.push_back(topcard);
         topcard = selectedcard;
+        hand.erase(hand.begin() + index - 1);
+        selectedcard.display();
+        return true;
     }
-
-    hand.erase(hand.begin() + index);
-    selectedcard.display();
-    return true;
+    else
+    {
+        std::cout << "이 카드는 낼 수 없습니다" << std::endl;
+        return false;
+    }
 }
 
 void Player1::showHand()
@@ -70,7 +79,7 @@ int Player1::getCardCount()
     return size;
 }
 
-void Player1::returnIndex(Card& topcard, std::vector<Card>& discardPile)
+void Player1::returnIndex(Card& topcard)
 {
     std::vector<int> ans;
     int size = hand.size();

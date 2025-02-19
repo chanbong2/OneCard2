@@ -11,14 +11,14 @@
 
 void Deck::initialBegin() {
     cards.clear();
-
-    // for (int cardSuit = SPADE; cardSuit <= CLUB; cardSuit++) {
-    //     for (int cardNumber = ACE; cardNumber <= KING; cardNumber++) {
-    //         cards.push_back(Card(static_cast<cardSuit>(cardSuit), static_cast<cardNumber>(cardNumber)));
-    //     }
-    // }
-    // cardSuit과 cardNumber를 enum 타입으로 변경해줘야 한다고 한다. (아래에 변경 사항 저장)
-
+//
+// for (int cardSuit = SPADE; cardSuit <= CLUB; cardSuit++) {
+//     for (int cardNumber = ACE; cardNumber <= KING; cardNumber++) {
+//         cards.push_back(Card(static_cast<cardSuit>(cardSuit), static_cast<cardNumber>(cardNumber)));
+//     }
+//}
+//cardSuit과 cardNumber를 enum 타입으로 변경해줘야 한다고 한다. (아래에 변경 사항 저장)
+//
     for (cardSuit suit = SPADE; suit <= CLUB; suit = static_cast<cardSuit>(suit + 1)) {
         for (cardNumber number = ACE; number <= KING; number = static_cast<cardNumber>(number + 1)) {
             cards.push_back(Card(suit, number));
@@ -35,18 +35,15 @@ void Deck::shuffleDeck()
     std::ranges::shuffle(cards.begin(), cards.end(), g);
 }
 
-Card Deck::drawCard() {
-    //
-}
-
-size_t Deck::remainedCards() const
+size_t Deck::remainedCards()
 {
     return cards.size();
 }
+// 적합한 자료형으로 변경
 // int로 선언했으나, 반환값이 부호가 없으므로 unsigned long인 size_t로 변환을 추천받아 변경했음
 
 
-bool Deck::isEmpty() const
+bool Deck::isEmpty()
 {
     return cards.empty();
 }
@@ -68,6 +65,7 @@ void Deck::refillDeck(std::vector<Card>& discardStack)
     discardStack.push_back(topCard);
     shuffleDeck();
     std::cout << "Deck has been refilled, except for topCard." << std::endl;
-    // discardStack에서 topCard만 뺀 나머지를 Deck에다가 집어넣음
-    // 그리고 shuffleDeck 수행
+// 원리
+// discardStack에서 topCard만 뺀 나머지를 Deck에다가 집어넣음
+// 그리고 shuffleDeck 수행
 }

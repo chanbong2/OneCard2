@@ -24,10 +24,9 @@ class Deck {
     void initialBegin();
     void shuffleDeck();
     void setTopCard();
-    size_t remainedCards() const;
-    bool isEmpty() const;
+    bool isEmpty();
+    size_t remainedCards();
     void refillDeck(std::vector<Card>& discardStack);
-    Card drawCard(Player2& p1);
 };
 
 

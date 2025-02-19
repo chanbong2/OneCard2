@@ -6,12 +6,14 @@
 #include "Deck.hpp"
 #include <ctime>
 
-Game::Game(Player2& p1, Player2& p2)
-    : player1(p1), player2(p2), currentPlayer(&player1), gameOver(false) {
-    deck.initialBegin();
-    deck.shuffleDeck();
-    deck.setTopCard;
-    dealCards();
+Game::Game()
+{
+    player1 = Player1("Player1");
+    player2 = Player2("Player2");
+    currentPlayer = &player1;
+    opponent = &player2;
+    cardNumberToWin = 15;
+    turnNumber = 0;
 }
 
 void Game::startGame() {
@@ -73,7 +75,4 @@ Card Game::getTopCard() const {
     return topCard;
 }
 
-void Game::setTopCard(Card& cards) {
-    // topCard = cards.();
-}
 

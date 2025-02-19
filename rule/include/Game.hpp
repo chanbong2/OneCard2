@@ -53,6 +53,8 @@
 #define GAME_HPP
 
 #include <vector>
+#include <string>
+#include "Player.hpp"
 #include "Player1.hpp"
 #include "Player2.hpp"
 #include "Deck.hpp"
@@ -61,27 +63,30 @@
 
 
 class Game {
-private:
-    Player2 player1;
+public:
+    Player* currentPlayer;
+    Player* opponent;
+    Player1 player1;
     Player2 player2;
-    Player2* currentPlayer;
     Card topCard;
     Deck deck;
-    bool gameOver;
+    std::vector<Card> discardStack;
 
-public:
-    Game(Player2& p1, Player2& p2);
+    int turnNumber;
+    int cardNumberToWin;
+
+    Game();
+    Game(std::string name1, std::string name2);
     void startGame();
+    void setTopCard(Card& card);
+    void dealCards();
     void changeTurn();
     void playTurn();
-    void checkWinner();
-    void checkJoker();
+    void checkWinner(); // 조커로 인한 패배 포함
+    void isValidCard(Card& card);
     bool isGameOver() const;
     void showStatus();
     void shuffleDeck();
-    void dealCards();
-    Card getTopCard() const;
-    void setTopCard(Card& card);
 };
 
 

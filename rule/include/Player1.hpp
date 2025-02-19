@@ -5,29 +5,27 @@
 #ifndef PLAYER1_HPP
 #define PLAYER1_HPP
 
-#include "Enum.hpp"
-#include "Deck.hpp"
+#include "Player.hpp"
 #include "Card.hpp"
 #include "Game.hpp"
 #include <string>
 
 
-class Player1
+class Player1 : Player
 {
 public:
-    std::string name;
-    std::vector<Card> hand;
     Player1();
     Player1(std::string pname);
-    void drawCard(std::vector<Card> deck);
-    bool isTurn();
-    bool isValidCard(Card& topcard);
-    bool playCard(int index, Card& topcard, std::vector<Card>& discardStack);
-    void showHand();
-    void returnIndex(Card& topcard, std::vector<Card>& discardStack);
-    int getCardCount();
-    bool isBothJoker();
-    bool isZero();
+
+    void drawCard(std::vector<Card>& deck) override;
+    bool isTurn() override;
+    bool isValidCard(Card& topcard) override;
+    bool playCard(int index, Card& topcard, std::vector<Card>& discardStack) override;
+    void showHand() override;
+    void returnIndex(Card& topcard) override;
+    int getCardCount() override;
+    bool isBothJoker() override;
+    bool isZero() override;
 };
 
 #endif //PLAYER1_HPP

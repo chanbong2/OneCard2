@@ -9,6 +9,11 @@
 Card::Card(cardSuit suit, cardNumber number)
     : suit(suit), number(number) {}
 
+Card::Card(int suit, int number) {
+    this->suit = suit;
+    this->number = number;
+}
+
 void Card::display()
 {
     std::cout << "문양 : " << suit << std::endl;
